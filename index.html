@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pneu</title>
+  <script>
+    // Função para incrementar o contador de cliques na imagem
+    function incrementarContador() {
+      if (localStorage.getItem('contadorCliquesPneu')) {
+        var contador = parseInt(localStorage.getItem('contadorCliquesPneu'));
+        localStorage.setItem('contadorCliquesPneu', contador + 1);
+      } else {
+        localStorage.setItem('contadorCliquesPneu', 1);
+      }
+      // Atualizar o texto do contador na página
+      document.getElementById('contadorPneu').textContent = localStorage.getItem('contadorCliquesPneu');
+    }
+  </script>
+</head>
+<body>
+  <h1>Imagem de Pneu</h1>
+  
+  <!-- Inserindo a imagem de pneu com função para incrementar o contador -->
+  <img src="pneu.jpg" alt="Pneu" width="300" onclick="incrementarContador()" style="cursor: pointer;">
+  
+  <p>Clique na imagem do pneu para contar os cliques.</p>
+
+  <p>Contagem de cliques na imagem de pneu: <span id="contadorPneu">
+    <!-- Script para exibir o contador inicializado -->
+    <script>
+      if (localStorage.getItem('contadorCliquesPneu')) {
+        document.getElementById('contadorPneu').textContent = localStorage.getItem('contadorCliquesPneu');
+      } else {
+        document.getElementById('contadorPneu').textContent = '0';
+      }
+    </script>
+  </span></p>
+</body>
+</html>
